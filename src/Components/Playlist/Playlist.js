@@ -2,7 +2,7 @@ import React from 'react';
 import './Playlist.css';
 import TrackList from '../TrackList/TrackList';
 
-class Playlist extends React.components {
+class Playlist extends React.Component {
 constructor(props) {
   super(props);
 
@@ -19,7 +19,7 @@ handleNameChange(event) {
         <input onChange={this.handleNameChange} defaultValue={'New Playlist'}/>
         <TrackList tracks = {this.props.playlistTracks}               isRemoval={true} 
             onRemove={this.props.onRemove} />
-        <a className="Playlist-save" onClick={this.props.onSave} >SAVE TO SPOTIFY</a>
+        <a className="Playlist-save" onClick={this.props.onSave}>SAVE TO SPOTIFY</a>
       </div>
    );
   }
