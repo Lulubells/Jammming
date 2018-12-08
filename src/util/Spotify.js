@@ -1,5 +1,5 @@
 const clientId = '54e1ade936fd474b83a6cbe61253722b'; 
-const redirectUri = "deserted-liquid.surge.sh"; 
+const redirectUri = "http://deserted-liquid.surge.sh"; 
 
 let accessToken;
 
