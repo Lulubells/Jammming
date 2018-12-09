@@ -6,6 +6,7 @@ import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import Spotify from '../../util/Spotify';
 
+//callback methods to be passed into searchresult & playlist components
 class App extends React.Component {
 constructor(props) {
   super(props);
@@ -15,7 +16,7 @@ constructor(props) {
     playlistName: 'New Playlist',
     playlistTracks: []
   };
-
+//.bind()
   this.addTrack = this.addTrack.bind(this);
   this.removeTrack = this.removeTrack.bind(this);
   this.updatePlaylistName = this.updatePlaylistName.bind(this);
