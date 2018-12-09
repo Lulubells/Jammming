@@ -1,8 +1,9 @@
 const clientId = '54e1ade936fd474b83a6cbe61253722b'; 
-const redirectUri = "http://deserted-liquid.surge.sh"; 
+const redirectURI = 'http://mighty-person.surge.sh'; 
 
 let accessToken;
 
+// integration Jammming application with spotify APIs
 const Spotify = {
   getAccessToken() {
     if (accessToken) {
@@ -18,11 +19,12 @@ const Spotify = {
       window.history.pushState('Access Token', null, '/'); 
       return accessToken;
     } else {
-      const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
+      const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
       window.location = accessUrl;
     }
   },
 
+  // method to get search result from spotify search API
   search(term) {
     const accessToken = Spotify.getAccessToken();
     return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
@@ -62,8 +64,8 @@ const Spotify = {
         body: JSON.stringify({name: name})
       }).then(response => response.json()
       ).then(jsonResponse => {
-        const playlistId = jsonResponse.id;
-        return fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
+        const playlistID = jsonResponse.id;
+        return fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistID}/tracks`, {
           headers: headers,
           method: 'POST',
           body: JSON.stringify({uris: trackUris})
